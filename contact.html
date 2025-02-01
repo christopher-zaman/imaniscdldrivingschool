@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Imani's CDL Driving School | Contact</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Contact Imani's CDL Driving School | Jackson Heights, Queens</title>
+  <meta name="description" content="Get in touch with Imani’s CDL Driving School for driving lessons, CDL training, and road test preparation in Jackson Heights, Queens.">
+  <meta name="keywords" content="contact Imani's CDL, driving school in Queens, CDL training contact, road test instructor, Jackson Heights driving school">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -123,28 +123,58 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="googleForm" class="g-email-form">
               <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                </div>
+                  <div class="col-md-6 form-group">
+                      <input type="text" name="entry.897591949" class="form-control" id="name" placeholder="Your Name" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <input type="email" class="form-control" name="entry.1080645176" id="email" placeholder="Your Email" required="">
+                  </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                  <input type="text" class="form-control" name="entry.590153360" id="subject" placeholder="Subject" required="">
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Message" required=""></textarea>
+                  <textarea class="form-control" name="entry.2005964964" id="message" placeholder="Message" required=""></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="loading" style="display: none;">Loading...</div>
+                  <div class="error-message" style="color: red;"></div>
+                  <div class="sent-message" style="color: green; display: none;">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+          </form>
+          
+          <script>
+          document.getElementById("googleForm").addEventListener("submit", function(event) {
+              event.preventDefault(); // Prevent form from redirecting
+              
+              const form = event.target;
+              const formData = new FormData(form);
+              const actionURL = "https://docs.google.com/forms/d/e/1FAIpQLSeLLF9A9dttidFBPLqO_pisywoIilO-YoKEnEdG1dto1EZ9yA/formResponse"; // Google Form submission URL
+          
+              document.querySelector(".loading").style.display = "block"; // Show loading message
+              document.querySelector(".sent-message").style.display = "none";
+              document.querySelector(".error-message").style.display = "none";
+          
+              fetch(actionURL, {
+                  method: "POST",
+                  body: formData,
+                  mode: "no-cors" // Prevent CORS errors
+              })
+              .then(() => {
+                  document.querySelector(".loading").style.display = "none"; // Hide loading
+                  document.querySelector(".sent-message").style.display = "block"; // Show success message
+                  form.reset(); // Clear form fields
+              })
+              .catch(error => {
+                  document.querySelector(".loading").style.display = "none";
+                  document.querySelector(".error-message").textContent = "Something went wrong. Please try again.";
+                  document.querySelector(".error-message").style.display = "block";
+              });
+          });
+          </script>
           </div><!-- End Contact Form -->
 
         </div>
@@ -185,13 +215,13 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Hours</h4>
           <ul>
-            <li>Sunday: 9:00 AM - 6:00 PM</li>
-            <li>Monday: 8:00 AM - 7:00 PM</li>
-            <li>Tuesday: 8:00 AM - 7:00 PM</li>
-            <li>Wednesday: 8:00 AM - 7:00 PM</li>
-            <li>Thursday: 8:00 AM - 7:00 PM</li>
-            <li>Friday: 8:00 AM - 7:00 PM</li>
-            <li>Saturday: 9:00 AM - 6:00 PM</li>
+            <li class="medium-font">Sunday: 9:00AM - 6:00PM</li>
+            <li class="medium-font">Monday: 8:00AM - 7:00PM</li>
+            <li class="medium-font">Tuesday: 8:00AM - 7:00PM</li>
+            <li class="medium-font">Wednesday: 8:00AM - 7:00PM</li>
+            <li class="medium-font">Thursday: 8:00AM - 7:00PM</li>
+            <li class="medium-font">Friday: 8:00AM - 7:00PM</li>
+            <li class="medium-font">Saturday: 9:00AM - 6:00PM</li>
           </ul>
         </div>
         
@@ -209,14 +239,16 @@
         </div>
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Contact Us</h4>
-          <p>Send us your email</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email" placeholder="Email"><input type="submit" value="Send"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-          </form>
+          <h4>Licensed by the State of New York.</h4>
+          <div class="footer-certifications">
+            <ul class="list-style-type-none">
+              <li><i class="bi bi-brightness-high" style="color: #29cc61;"></i> Must Make Pre-Payment to Reserve Your Seat</li>
+              <li><i class="bi bi-infinity" style="color: #5578ff;"></i> Nervous Student our Specialty</li>
+              <li><i class="bi bi-mortarboard" style="color: #e80368;"></i> Highly Experienced College Trained Instructors</li>
+              <li><i class="bi bi-star" style="color: #ffa76e;"></i> 1 Small Deposit Will Start Your Package</li>
+            </ul>
+          </div>
+        
         </div>
 
       </div>

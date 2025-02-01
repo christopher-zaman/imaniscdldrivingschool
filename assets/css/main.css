@@ -175,8 +175,14 @@ h6 {
 .small-font {
   font-size: small;
 }
+.medium-font {
+  font-size: .9rem;
+}
 .font-large {
   font-size: large;
+}
+.font-larger {
+  font-size: larger;
 }
 .letter-spaced {
   letter-spacing: 0.02rem;
@@ -194,6 +200,9 @@ h6 {
 .section-title-ind-fee {
   text-align: center;
   position: relative;
+}
+.list-style-type-none {
+  list-style-type: none;
 }
 /*--------------------------------------------------------------
 # Global Header
@@ -517,6 +526,8 @@ h6 {
   background-color: var(--background-color);
   font-size: 14px;
   position: relative;
+  font-weight: 200;
+  font-size: large;
 }
 
 .footer .footer-top {
@@ -590,6 +601,7 @@ h6 {
   padding: 10px 0;
   display: flex;
   align-items: center;
+  font-weight: 400;
 }
 
 .footer .footer-links ul li:first-child {
@@ -597,7 +609,8 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  /* color: color-mix(in srgb, var(--default-color), transparent 30%); */
+  color: #fff;
   display: inline-block;
   line-height: 1;
 }
@@ -614,6 +627,7 @@ h6 {
 }
 .footer .footer-contact p a {
   color: #a0bbed;
+  font-weight: 400;
 }
 .footer .footer-newsletter .newsletter-form {
   margin-top: 30px;
@@ -2512,6 +2526,64 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
+}
+
+/*--------------------------------------------------------------
+# New form Styles Section 
+--------------------------------------------------------------*/
+.contact .g-email-form {
+  width: 100%;
+}
+
+.contact .g-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .g-email-form input[type=text],
+.contact .g-email-form input[type=email],
+.contact .g-email-form textarea {
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 14px;
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .g-email-form input[type=text]:focus,
+.contact .g-email-form input[type=email]:focus,
+.contact .g-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .g-email-form input[type=text]::placeholder,
+.contact .g-email-form input[type=email]::placeholder,
+.contact .g-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .g-email-form input[type=text],
+.contact .g-email-form input[type=email] {
+  height: 48px;
+  padding: 10px 15px;
+}
+
+.contact .g-email-form textarea {
+  padding: 10px 12px;
+  height: 290px;
+}
+
+.contact .g-email-form button[type=submit] {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border: 0;
+  padding: 13px 50px;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .g-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
 }
 
