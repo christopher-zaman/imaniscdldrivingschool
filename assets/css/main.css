@@ -1138,6 +1138,41 @@ section,
   z-index: 1;
 }
 
+.pdf-container {
+  position: relative;
+  background: #fff;
+  height: 82vh;            /* adjust as desired */
+  min-height: 640px;
+  max-height: 1200px;
+  border-radius: 10px;
+  overflow: auto;          /* <-- allow scroll, don't clip content */
+  scrollbar-gutter: stable both-edges; /* <-- reserve space for scrollbar */
+  padding-right: 8px;      /* <-- keeps right edge visible under overlay scrollbars */
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  /* no border-radius here; let the container handle it */
+}
+
+/* Optional: tiny white mask at bottom to hide any 1–2px viewer backdrop */
+.pdf-container::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 8px;
+  background: #fff;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .pdf-container { height: 70vh; min-height: 460px; }
+}
+
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
