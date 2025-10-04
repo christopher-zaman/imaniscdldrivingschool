@@ -1140,12 +1140,10 @@ section,
 
 .pdf-container {
   position: relative;
-  background: #fff;              /* page background color */
-  height: 78vh;                  /* tweak to taste */
-  min-height: 560px;
-  overflow: auto;                 /* allow scroll if needed */
-  scrollbar-gutter: stable both-edges;
-  padding-right: 8px;             /* avoids right-edge crop w/ overlay scrollbars */
+  background: #fff;
+  overflow: hidden;             /* no scrollbars */
+  width: 100%;
+  aspect-ratio: 8.5 / 11;       /* fit entire page height automatically */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
 }
@@ -1157,26 +1155,6 @@ section,
   display: block;
 }
 
-/* MASK side “pillars” from the viewer */
-.pdf-container::before,
-.pdf-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 12px;                   /* increase/decrease to cover the black edge */
-  background: #fff;              /* match your section background */
-  pointer-events: none;
-  z-index: 2;
-}
-.pdf-container::before { left: 0; }
-.pdf-container::after  { right: 0; }
-
-
-
-@media (max-width: 768px) {
-  .pdf-container { height: 64vh; min-height: 420px; }
-}
 
 /*--------------------------------------------------------------
 # Services Section
