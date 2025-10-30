@@ -183,9 +183,14 @@
                   mode: "no-cors" // Prevent CORS errors
               })
               .then(() => {
+                  
+
                   document.querySelector(".loading").style.display = "none"; // Hide loading
                   document.querySelector(".sent-message").style.display = "block"; // Show success message
                   form.reset(); // Clear form fields
+
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({ event: "contact_form_sent" });
 
               // Google Ads Conversion Event
               gtag('event', 'conversion', {
