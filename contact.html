@@ -166,45 +166,35 @@
           </form>
           
           <script>
-          document.getElementById("googleForm").addEventListener("submit", function(event) {
-              event.preventDefault(); // Prevent form from redirecting
-              
-              const form = event.target;
-              const formData = new FormData(form);
-              const actionURL = "https://docs.google.com/forms/d/e/1FAIpQLSeLLF9A9dttidFBPLqO_pisywoIilO-YoKEnEdG1dto1EZ9yA/formResponse"; // Google Form submission URL
-          
-              document.querySelector(".loading").style.display = "block"; // Show loading message
-              document.querySelector(".sent-message").style.display = "none";
-              document.querySelector(".error-message").style.display = "none";
-          
-              fetch(actionURL, {
-                  method: "POST",
-                  body: formData,
-                  mode: "no-cors" // Prevent CORS errors
-              })
-              .then(() => {
-                  
+document.getElementById("googleForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-                  document.querySelector(".loading").style.display = "none"; // Hide loading
-                  document.querySelector(".sent-message").style.display = "block"; // Show success message
-                  form.reset(); // Clear form fields
+  const form = event.target;
+  const formData = new FormData(form);
+  const actionURL = "https://docs.google.com/forms/d/e/1FAIpQLSeLLF9A9dttidFBPLqO_pisywoIilO-YoKEnEdG1dto1EZ9yA/formResponse";
 
-                  window.dataLayer = window.dataLayer || [];
-                  window.dataLayer.push({ event: "contact_form_sent" });
+  document.querySelector(".loading").style.display = "block";
+  document.querySelector(".sent-message").style.display = "none";
+  document.querySelector(".error-message").style.display = "none";
 
-              // Google Ads Conversion Event
-              gtag('event', 'conversion', {
-                'send_to': 'AW-17421397332/bO75CMiW6_waENTalfNA'
-              });
+  fetch(actionURL, { method: "POST", body: formData, mode: "no-cors" })
+    .then(() => {
+      document.querySelector(".loading").style.display = "none";
+      document.querySelector(".sent-message").style.display = "block";
+      form.reset();
 
-              })
-              .catch(error => {
-                  document.querySelector(".loading").style.display = "none";
-                  document.querySelector(".error-message").textContent = "Something went wrong. Please try again.";
-                  document.querySelector(".error-message").style.display = "block";
-              });
-          });
-          </script>
+      // 🔔 Tell GTM to fire the Ads conversion
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "contact_form_sent" });
+    })
+    .catch(() => {
+      document.querySelector(".loading").style.display = "none";
+      document.querySelector(".error-message").textContent = "Something went wrong. Please try again.";
+      document.querySelector(".error-message").style.display = "block";
+    });
+});
+</script>
+
           </div><!-- End Contact Form -->
 
         </div>
